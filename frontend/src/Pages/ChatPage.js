@@ -2,9 +2,9 @@ import React from 'react'
 
 function ChatPage() {
 
-const fetchChats=()=>{
+// const fetchChats=()=>{
     
-}
+// }
 
   return (
     <div>
