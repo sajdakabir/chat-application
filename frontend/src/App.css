@@ -1,0 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
+
+.App{
+    min-height: 100vh;
+    display: flex;
+    background-image: url(./back.jpg);
+    /* background-size: cover;
+    background-position: center; */
+}
