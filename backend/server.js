@@ -1,12 +1,18 @@
 const express =require('express');
 const dotenv=require('dotenv');
-const app=express();
+const connectDB = require('./config/db');
+const colors =require('colors');
 dotenv.config();
-const port = process.env.PORT || 3000;
+
+connectDB();
+const app=express();
+
+
+const port = process.env.PORT || 3001;
 
 
 
 app.listen(port, () => {
-    console.log(`Server is up on port ${port}!`);
+    console.log(`Server is up on port ${port}!`.yellow.bold);
   });
   
