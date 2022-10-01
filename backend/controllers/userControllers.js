@@ -1,0 +1,41 @@
+const asyncHandler=require('express-async-handler');
+const User = require('../models/userModel');
+const { use } = require('../routes/userRoutes');
+const generateToken=require('../config/generateToken');
+const registerUser=asyncHandler(
+    async(req,res)=>{
+        const {name,email,password,profile}=req.body;
+        if(!name || !email || !password){
+            res.status(400);
+            throw new Error("please enter all the feild");
+        }
+
+        const UserExists=await User.findOne({email});
+        if(UserExists){
+            res.status(400);
+            throw new Error("User already exits");
+        }
+
+        const user=await User.create({
+            name,
+            email,
+            password,
+            profile
+        });
+
+        if(user){
+            res.status(200).json({
+                _id:user._id,
+                name:user.name,
+                email:user.email,
+                profile:user.profile,
+                token:generateToken(user._id),
+            });
+        }else{
+            res.status(400);
+            throw new Error ('Faild to create the user');
+        }
+    }
+);
+
+module.exports={registerUser};
