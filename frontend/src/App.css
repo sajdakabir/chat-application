@@ -6,4 +6,6 @@
     background-image: url(./back.jpg);
     /* background-size: cover;
     background-position: center; */
+    color: black;
+   font-family: 'Roboto';
 }
