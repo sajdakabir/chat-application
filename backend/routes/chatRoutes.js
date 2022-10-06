@@ -1,10 +1,10 @@
 const express=require('express');
-const {protect}=require('../middleware/authMiddleware');
+const {protectRoute}=require('../middleware/authMiddleware');
 const {accessChat}=require('../controllers/chatControllers');
 
 const router=express.Router();
 
-router.route('/').post(protect,accessChat);
+router.route('/').post(protectRoute,accessChat);
 
 
 module.exports=router;
