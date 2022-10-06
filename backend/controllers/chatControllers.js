@@ -1,6 +1,6 @@
 const asyncHandler=require('express-async-handler');
 const Chat=require('../models/chatModel');
-const user=require('../models/userModel');
+const User=require('../models/userModel');
 
 const accessChat=asyncHandler(async(req,res)=>{
     const{userId}=req.body;
@@ -19,7 +19,7 @@ const accessChat=asyncHandler(async(req,res)=>{
 
     isChat=await User.populate(isChat,{
         path:'latestMessage.sender',
-        select:'name pic email',
+        select:'name profile email',
     });
 
     if(isChat.length>0){
