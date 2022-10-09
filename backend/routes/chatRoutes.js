@@ -1,6 +1,6 @@
 const express=require('express');
 const {protectRoute}=require('../middleware/authMiddleware');
-const {accessChat,fetchChats,createGroupChat}=require('../controllers/chatControllers');
+const {accessChat,fetchChats,createGroupChat,renameGroup}=require('../controllers/chatControllers');
 
 const router=express.Router();
 
@@ -11,5 +11,7 @@ router.route('/')
 router.route('/group')
 .post(protectRoute,createGroupChat);
 
+router.route('/rename')
+.put(protectRoute,renameGroup);
 
 module.exports=router;
