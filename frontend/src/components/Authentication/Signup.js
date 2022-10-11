@@ -1,5 +1,6 @@
 import { VStack, FormControl, FormLabel, Input, InputRightElement, Button, InputGroup } from '@chakra-ui/react'
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import { useToast } from '@chakra-ui/react'
 
 function Signup() {
     const [show, setShow] = useState(false);
@@ -8,11 +9,52 @@ function Signup() {
     const [password, setPassword] = useState();
     const [confirmpassword, setConfirmpassword] = useState();
     const [profile, setPofile] = useState();
+    const[loading,setLoading]=useState(false);
 
     const handleClick = () => setShow(!show);
+    const toast = useToast();
 
     const postDetails = (profiles) => {
-
+        setLoading(true);
+        if(profiles===undefined){
+            toast({
+                title: "Please Select an Image!",
+                status: "warning",
+                duration: 5000,
+                isClosable: true,
+                position: "bottom",
+              });
+              return;
+        }
+        console.log(profiles);
+        if(profiles.type==='image/jpeg' || profiles.type==='image/png'){
+            const data=new FormData();
+            data.append('file',profiles);
+            data.append('upload_preset','nodeJsChatApp');
+            data.append('cloud_name','dxgycgq3l');
+            fetch('https://api.cloudinary.com/v1_1/dxgycgq3l/image/upload',{
+                method:'post',
+                body:data,
+            }).then((res)=>res.json())
+            .then((data)=>{
+                setPofile(data.url.toString());
+                console.log(data.url.toString());
+                setLoading(false);
+            }).catch((err)=>{
+                console.log(err);
+                setLoading(false);
+            });
+        }else{
+            toast({
+                title: "Please Select an Image!",
+                status: "warning",
+                duration: 5000,
+                isClosable: true,
+                position: "bottom",
+              });
+              setLoading(false);
+              return;
+        }
     };
     const submitHandler = () => { };
 
@@ -98,6 +140,7 @@ function Signup() {
             width="100%"
             style={{ marginTop: 15 }}
             onClick={submitHandler}
+            isLoading={loading}
         >
             Sign Up
         </Button>
