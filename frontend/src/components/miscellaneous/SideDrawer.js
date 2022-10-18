@@ -29,9 +29,9 @@ import { useToast } from "@chakra-ui/toast";
 import ChatLoading from "../ChatLoading";
 import { Spinner } from "@chakra-ui/spinner";
 
-// import NotificationBadge from "react-notification-badge";
-// import { Effect } from "react-notification-badge";
-// import { getSender } from "../../config/ChatLogics";
+import NotificationBadge from "react-notification-badge";
+import { Effect } from "react-notification-badge";
+import { getSender } from "../../config/ChatLogics";
 import UserListItem from '../UserAvatar/UserListItem';
 
 
@@ -130,41 +130,55 @@ function SideDrawer() {
 
   return (
     <>
-     <Box
-      display='flex' 
-       d="flex"
-       justifyContent="space-between"
-       alignItems="center"
-       bg="white"
-       w="100%"
-       p="5px 10px 5px 10px"
-       borderWidth="5px"
-     >
-      <Tooltip label='Search Users to chat' hasArrow placement='bottom-end'>
-
-        <Button variant='ghost' onClick={onOpen}>
-         <i className="fas fa-search"></i>
-         <Text d={{ base: "none", md: "flex" }} px={4}>
-          Search User
-         </Text>
-        </Button>
-      </Tooltip>
-
-
-      <Text fontSize="2xl" fontFamily="Work sans">
-          Chat-A-Lot
+      <Box
+        display="flex"
+        d="flex"
+        justifyContent="space-between"
+        alignItems="center"
+        bg="white"
+        w="100%"
+        p="5px 10px 5px 10px"
+        borderWidth="5px"
+      >
+        <Tooltip label="Search Users to chat" hasArrow placement="bottom-end">
+          <Button variant="ghost" onClick={onOpen}>
+            <i className="fas fa-search"></i>
+            <Text
+             display={{ base: "none", md: "flex" }} 
+             d={{ base: "none", md: "flex" }} 
+             px={4}>
+              Search User
+            </Text>
+          </Button>
+        </Tooltip>
+        <Text fontSize="2xl" fontFamily="Work sans">
+          Talk-A-Tive
         </Text>
-
         <div>
           <Menu>
             <MenuButton p={1}>
-              {/* <NotificationBadge
+              <NotificationBadge
                 count={notification.length}
                 effect={Effect.SCALE}
-              /> */}
+              />
               <BellIcon fontSize="2xl" m={1} />
             </MenuButton>
-            {/* <MenuList pl={2}></MenuList> */}
+            <MenuList pl={2}>
+              {!notification.length && "No New Messages"}
+              {notification.map((notif) => (
+                <MenuItem
+                  key={notif._id}
+                  onClick={() => {
+                    setSelectedChat(notif.chat);
+                    setNotification(notification.filter((n) => n !== notif));
+                  }}
+                >
+                  {notif.chat.isGroupChat
+                    ? `New Message in ${notif.chat.chatName}`
+                    : `New Message from ${getSender(user, notif.chat.users)}`}
+                </MenuItem>
+              ))}
+            </MenuList>
           </Menu>
           <Menu>
             <MenuButton as={Button} bg="white" rightIcon={<ChevronDownIcon />}>
@@ -174,27 +188,24 @@ function SideDrawer() {
                 name={user.name}
                 src={user.profile}
               />
-              
             </MenuButton>
             <MenuList>
               <ProfileModal user={user}>
-                <MenuItem>My Profile</MenuItem>
+                <MenuItem>My Profile</MenuItem>{" "}
               </ProfileModal>
               <MenuDivider />
-              <MenuItem onClick={logoutHandler} >Logout</MenuItem>
+              <MenuItem onClick={logoutHandler}>Logout</MenuItem>
             </MenuList>
           </Menu>
         </div>
+      </Box>
 
-     </Box>
-
-     <Drawer placement="left" onClose={onClose} isOpen={isOpen}>
-
-     <DrawerOverlay>
-      <DrawerContent>
-      <DrawerHeader borderBottomWidth="1px">Search Users</DrawerHeader>
-      <DrawerBody>
-            <Box display="flex" pb={2}>
+      <Drawer placement="left" onClose={onClose} isOpen={isOpen}>
+        <DrawerOverlay />
+        <DrawerContent>
+          <DrawerHeader borderBottomWidth="1px">Search Users</DrawerHeader>
+          <DrawerBody>
+            <Box  display='flex' d="flex" pb={2}>
               <Input
                 placeholder="Search by name or email"
                 mr={2}
@@ -215,18 +226,12 @@ function SideDrawer() {
               ))
             )}
             {loadingChat && <Spinner ml="auto" display='flex' d="flex" />}
-
-            
           </DrawerBody>
-      </DrawerContent>
-     </DrawerOverlay>
-
-
-     </Drawer>
-
-
+        </DrawerContent>
+      </Drawer>
     </>
-  )
+  );
 }
+
 
 export default SideDrawer
