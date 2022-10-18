@@ -1,5 +1,3 @@
-
-
 import { FormControl } from "@chakra-ui/form-control";
 import { Input } from "@chakra-ui/input";
 import { Box, Text } from "@chakra-ui/layout";
@@ -12,7 +10,7 @@ import { ArrowBackIcon } from "@chakra-ui/icons";
 import ProfileModal from  '../components/miscellaneous/ProfileModel';
 import ScrollableChat from "./ScrollableChat";
 import Lottie from "react-lottie";
-// import animationData from "../animations/typing.json";
+import animationData from "../animations/typing.json";
 
 import io from "socket.io-client";
 import UpdateGroupChatModal from './miscellaneous/UpdateGroupChatModal';
@@ -30,12 +28,12 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
   const toast = useToast();
 
   const defaultOptions = {
-    // loop: true,
-    // autoplay: true,
-    // animationData: animationData,
-    // rendererSettings: {
-    //   preserveAspectRatio: "xMidYMid slice",
-    // },
+    loop: true,
+    autoplay: true,
+    animationData: animationData,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
   };
   const { selectedChat, setSelectedChat, user, notification, setNotification } =
     ChatState();
@@ -113,20 +111,20 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
     socket.on("typing", () => setIsTyping(true));
     socket.on("stop typing", () => setIsTyping(false));
 
-    // eslint-disable-next-line
+ 
   }, []);
 
   useEffect(() => {
     fetchMessages();
 
     selectedChatCompare = selectedChat;
-    // eslint-disable-next-line
+    
   }, [selectedChat]);
 
   useEffect(() => {
     socket.on("message recieved", (newMessageRecieved) => {
       if (
-        !selectedChatCompare || // if chat is not selected or doesn't match current chat
+        !selectedChatCompare || 
         selectedChatCompare._id !== newMessageRecieved.chat._id
       ) {
         if (!notification.includes(newMessageRecieved)) {
@@ -236,7 +234,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
                 <div>
                   <Lottie
                     options={defaultOptions}
-                    // height={50}
+                  
                     width={70}
                     style={{ marginBottom: 15, marginLeft: 0 }}
                   />
@@ -255,7 +253,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
           </Box>
         </>
       ) : (
-        // to get socket.io on same page
+      
         <Box display='flex' d="flex" alignItems="center" justifyContent="center" h="100%">
           <Text fontSize="3xl" pb={3} fontFamily="Work sans">
             Click on a user to start chatting
