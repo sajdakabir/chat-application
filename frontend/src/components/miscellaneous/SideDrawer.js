@@ -214,7 +214,7 @@ function SideDrawer() {
                 />
               ))
             )}
-            {loadingChat && <Spinner ml="auto" d="flex" />}
+            {loadingChat && <Spinner ml="auto" display='flex' d="flex" />}
 
             
           </DrawerBody>
