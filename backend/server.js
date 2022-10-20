@@ -69,7 +69,7 @@ io.on("connection", (socket) => {
   });
   socket.on("join chat", (room) => {
     socket.join(room);
-    console.log("User Joined Room: " + room);
+    // console.log("User Joined Room: " + room);
   });
 
   socket.on("new message", (newMessageRecieved) => {
