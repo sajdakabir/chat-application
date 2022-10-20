@@ -7,16 +7,15 @@ import { getSender, getSenderFull } from "../config/ChatLogics";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { ArrowBackIcon } from "@chakra-ui/icons";
-import ProfileModal from  '../components/miscellaneous/ProfileModel';
+import ProfileModal from './miscellaneous/ProfileModel';
 import ScrollableChat from "./ScrollableChat";
 import Lottie from "react-lottie";
-import animationData from "../animations/typing.json";
+import animationData from '../animations/typing.json';
 
 import io from "socket.io-client";
 import UpdateGroupChatModal from './miscellaneous/UpdateGroupChatModal';
 import { ChatState } from "../Context/ChatProvider";
-const ENDPOINT = "https://chat-a-lot-mern.herokuapp.com/"; 
-// const ENDPOINT = "http://localhost:3001"; 
+const ENDPOINT = "http://localhost:3001"; 
 var socket, selectedChatCompare;
 
 const SingleChat = ({ fetchAgain, setFetchAgain }) => {
@@ -119,7 +118,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
     fetchMessages();
 
     selectedChatCompare = selectedChat;
-    
+   
   }, [selectedChat]);
 
   useEffect(() => {
@@ -235,7 +234,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
                 <div>
                   <Lottie
                     options={defaultOptions}
-                  
+                    // height={50}
                     width={70}
                     style={{ marginBottom: 15, marginLeft: 0 }}
                   />
@@ -254,7 +253,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
           </Box>
         </>
       ) : (
-      
+        // to get socket.io on same page
         <Box display='flex' d="flex" alignItems="center" justifyContent="center" h="100%">
           <Text fontSize="3xl" pb={3} fontFamily="Work sans">
             Click on a user to start chatting
