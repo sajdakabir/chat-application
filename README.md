@@ -24,6 +24,7 @@ Go to the project directory
 
 ### Running backend
 
+
 ```shell
 # go to backend 
 $ cd backend
@@ -36,11 +37,12 @@ $ npm start
 
 ```
 
+
 ### Running frontend application
 
 ```shell
 $ cd frontend/
 $ npm install
-$  npm start
+$ npm start
 
 ```
