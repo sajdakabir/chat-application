@@ -42,11 +42,6 @@ if (process.env.NODE_ENV === "production") {
 app.use(notFound)
 app.use(errorHandlers)
 
-// const port = process.env.PORT || 3001;
-// app.listen(port, () => {
-//     console.log(`Server is up on port ${port}!`.yellow.bold);
-//   });
-  
 const PORT = process.env.PORT;
 
 const server = app.listen(
