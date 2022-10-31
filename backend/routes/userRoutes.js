@@ -10,6 +10,7 @@ router.route('/')
 .get(protectRoute,allUsers);
 
 
+
 router.route('/login').post(authUser);
 
 
