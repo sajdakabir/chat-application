@@ -50,4 +50,5 @@ $ npm start
 ## Features
 
 ## Authentication
+![](https://github.com/sajdakabir/Chat-Application/blob/main/screenshots/signup%2Blogin.jpeg)
 
