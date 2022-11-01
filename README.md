@@ -52,3 +52,27 @@ $ npm start
 ## Authentication
 ![](https://github.com/sajdakabir/Chat-Application/blob/main/screenshots/signup%2Blogin.jpeg)
 
+
+# Your profile
+![](https://github.com/sajdakabir/Chat-Application/blob/main/screenshots/profile.jpeg)
+
+# view other user profile
+![]()
+
+# one to one chat and notification
+![](https://github.com/sajdakabir/Chat-Application/blob/main/screenshots/one-to-one-chat%2Bnotification.jpeg)
+
+# Create Group Chats
+![](https://github.com/sajdakabir/Chat-Application/blob/main/screenshots/group.jpeg)
+
+# Add and remove users from group
+![](https://github.com/sajdakabir/Chat-Application/blob/main/screenshots/add-people-to-group.jpeg)
+
+# Real time chatting with typing indicator
+![]()
+
+# search User
+
+![](https://github.com/sajdakabir/Chat-Application/blob/main/screenshots/search.jpeg)
+
+
