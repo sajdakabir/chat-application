@@ -57,7 +57,7 @@ $ npm start
 ![](https://github.com/sajdakabir/Chat-Application/blob/main/screenshots/profile.jpeg)
 
 # view other user profile
-![]()
+![](https://github.com/sajdakabir/Chat-Application/blob/main/screenshots/other-profile.jpeg)
 
 # one to one chat and notification
 ![](https://github.com/sajdakabir/Chat-Application/blob/main/screenshots/one-to-one-chat%2Bnotification.jpeg)
@@ -68,8 +68,6 @@ $ npm start
 # Add and remove users from group
 ![](https://github.com/sajdakabir/Chat-Application/blob/main/screenshots/add-people-to-group.jpeg)
 
-# Real time chatting with typing indicator
-![]()
 
 # search User
 
