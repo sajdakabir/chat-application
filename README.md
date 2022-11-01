@@ -46,3 +46,8 @@ $ npm install
 $ npm start
 
 ```
+
+## Features
+
+## Authentication
+
