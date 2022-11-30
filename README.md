@@ -51,27 +51,27 @@ $ npm start
 
 ## Features
 
-## Authentication
+### Authentication
 ![](https://github.com/sajdakabir/Chat-Application/blob/main/screenshots/signup%2Blogin.jpeg)
 
 
-# Your profile
+### Your profile
 ![](https://github.com/sajdakabir/Chat-Application/blob/main/screenshots/profile.jpeg)
 
-# view other user profile
+### view other user profile
 ![](https://github.com/sajdakabir/Chat-Application/blob/main/screenshots/other-profile.jpeg)
 
-# one to one chat and notification
+### one to one chat and notification
 ![](https://github.com/sajdakabir/Chat-Application/blob/main/screenshots/one-to-one-chat%2Bnotification.jpeg)
 
-# Create Group Chats
+### Create Group Chats
 ![](https://github.com/sajdakabir/Chat-Application/blob/main/screenshots/group.jpeg)
 
-# Add and remove users from group
+### Add and remove users from group
 ![](https://github.com/sajdakabir/Chat-Application/blob/main/screenshots/add-people-to-group.jpeg)
 
 
-# search User
+### search User
 
 ![](https://github.com/sajdakabir/Chat-Application/blob/main/screenshots/search.jpeg)
 
