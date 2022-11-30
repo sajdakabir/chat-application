@@ -3,7 +3,7 @@
 Chat-A-Lot is a Full Stack Chatting App.
 Uses Socket.io for real time communication and stores user details in encrypted format in Mongo DB Database.
 
-## Tech Stack
+### Tech Stack
 
 **Client:** React JS
 
@@ -13,7 +13,7 @@ Uses Socket.io for real time communication and stores user details in encrypted 
 
 **Deployment:** Heroku, netlify
 
-## Setup
+### Setup
 
 Clone the project
 
