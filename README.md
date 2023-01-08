@@ -29,7 +29,7 @@ Go to the project directory
 
 ```shell
 # go to backend 
-$ cd backend
+$ cd backend/
 
 #install dependencies
 $ npm install
