@@ -5,6 +5,7 @@ const colors =require('colors');
 const useRoutes=require('./routes/userRoutes');
 const chatRoutes=require('./routes/chatRoutes');
 const messageRoutes=require('./routes/messageRoutes');
+const  cors =require('cors');
 // const{notFound,errorHandlers}=require('./middleware/errorMiddleware');
 // const path = require("path");
 
@@ -25,6 +26,12 @@ app.use('/api/message',messageRoutes);
 
 // app.use(notFound)
 // app.use(errorHandlers)
+const corsConfig = {
+  credentials: true,
+  origin: true,
+};
+app.use(cors(corsConfig));
+
 
 const PORT = process.env.PORT;
 
