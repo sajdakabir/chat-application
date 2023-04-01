@@ -5,8 +5,8 @@ const colors =require('colors');
 const useRoutes=require('./routes/userRoutes');
 const chatRoutes=require('./routes/chatRoutes');
 const messageRoutes=require('./routes/messageRoutes');
-const{notFound,errorHandlers}=require('./middleware/errorMiddleware');
-const path = require("path");
+// const{notFound,errorHandlers}=require('./middleware/errorMiddleware');
+// const path = require("path");
 
 dotenv.config();
 

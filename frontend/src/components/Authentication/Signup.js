@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { useToast } from '@chakra-ui/react';
 import axios from "axios";
 import { useHistory } from "react-router";
+// import {Navigate} from 'react-router-dom';
 
 function Signup() {
     const [show, setShow] = useState(false);
@@ -12,6 +13,7 @@ function Signup() {
     const [confirmpassword, setConfirmpassword] = useState();
     const [profile, setPofile] = useState();
     const [loading, setLoading] = useState(false);
+    const[redirect,setRedirect]=useState(false);
 
     const handleClick = () => setShow(!show);
     const toast = useToast();
@@ -111,7 +113,8 @@ function Signup() {
             });
             localStorage.setItem("userInfo", JSON.stringify(data));
             setLoading(false);
-            history.push("/chats");
+            history.push("/");
+            // setRedirect(true);
         } catch (error) {
             toast({
                 title: "Error Occured!",
@@ -124,6 +127,10 @@ function Signup() {
               setLoading(false);
         }
     };
+
+    // if(redirect){
+    //     return <Navigate to={'/login'} />
+    // }
 
 
     return (
